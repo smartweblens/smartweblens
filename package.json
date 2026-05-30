@@ -1,0 +1,11 @@
+{
+  "name": "web-internn-2",
+  "version": "1.0.0",
+  "description": "SmartWebLens Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 8005",
+    "start": "npx -y http-server -p 8005"
+  },
+  "dependencies": {}
+}
