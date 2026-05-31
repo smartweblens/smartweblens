@@ -257,16 +257,6 @@ export default function Home() {
               Start Tomorrow
             </div>
           </div>
-
-          {/* REQUIREMENT 9: smart-web-lens-homepage.webp Image SEO */}
-          <div style={{ marginTop: "48px", maxWidth: "960px", marginLeft: "auto", marginRight: "auto", borderRadius: "22px", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
-            <img 
-              src="/smart-web-lens-homepage.webp" 
-              alt="Smart Web Lens - Premium website development and mobile app dashboard analytics interface" 
-              title="Smart Web Lens Homepage - Best Website Development Company in Patna"
-              style={{ width: "100%", height: "auto", display: "block" }} 
-            />
-          </div>
         </div>
       </section>
 
