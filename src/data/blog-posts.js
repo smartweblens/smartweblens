@@ -184,7 +184,7 @@ export const blogPosts = [
     readTime: "6 min read",
     publishDate: "May 10, 2026",
     excerpt: "Learn how smart call-to-actions, unified UPI options, and frictionless mobile layouts can skyrocket your incoming business inquiries.",
-    image: "https://images.unsplash.com/photo-1552581230-2640744676af?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
     author: "Rahul Gop",
     authorImage: "/rahulgop.jpg",
     content: `
