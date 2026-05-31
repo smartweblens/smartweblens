@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,46 +15,128 @@ export default function Home() {
     const phone = e.target.phone.value;
     const subject = e.target.subject.value;
     const message = e.target.message.value;
-    const text = `Hi SmartWebLens, I'm interested in your services.\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Subject:* ${subject}\n*Message:* ${message}`;
+    const text = `Hi Smart Web Lens, I'm interested in your services.\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Subject:* ${subject}\n*Message:* ${message}`;
     window.open(`https://wa.me/918228985946?text=${encodeURIComponent(text)}`, "_blank");
     setIsModalOpen(false);
     e.target.reset();
   };
 
+  // Structured Schema Injections for Brand Authority
+  const jsonLdOrg = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Smart Web Lens",
+    "url": "https://www.smartweblens.xyz/",
+    "logo": "https://www.smartweblens.xyz/swl2.PNG",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+918228985946",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi"]
+    },
+    "sameAs": [
+      "https://wa.me/918228985946",
+      "https://github.com/smartweblens"
+    ]
+  };
+
+  const jsonLdWebSite = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Smart Web Lens",
+    "url": "https://www.smartweblens.xyz/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.smartweblens.xyz/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const jsonLdLocalBusiness = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Smart Web Lens",
+    "image": "https://www.smartweblens.xyz/swl2.PNG",
+    "@id": "https://www.smartweblens.xyz/#localbusiness",
+    "url": "https://www.smartweblens.xyz/",
+    "telephone": "+918228985946",
+    "priceRange": "INR",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Fraser Road Area",
+      "addressLocality": "Patna",
+      "addressRegion": "Bihar",
+      "postalCode": "800001",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.6127,
+      "longitude": 85.1376
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Patna" },
+      { "@type": "AdministrativeArea", "name": "Bihar" }
+    ]
+  };
+
   const faqItems = [
     {
-      q: "How fast can you deliver?",
-      a: "We deliver basic websites in as little as 5 business days after receiving your content and confirmation. For ecommerce or custom projects, timelines vary — call us to get an exact estimate for your project."
+      q: "Which is the best website development company in Patna?",
+      a: "Smart Web Lens is recognized as the best website development company in Patna, Bihar, offering high-performance custom website development, mobile app design, and software solutions under 5 business days."
     },
     {
-      q: "Do you provide hosting and domain?",
-      a: "Yes! All our plans include a free domain name and hosting for the first year. SSL certificate is also included at no extra cost. Renewals after 1 year are at standard market rates."
+      q: "What is the cost of website development services in Patna?",
+      a: "Our corporate web layouts at Smart Web Lens start at an affordable price of ₹9,999. This covers responsive layout design, free domain registration, free premium hosting for 1 year, SSL certificate bindings, and standard local SEO setup."
     },
     {
-      q: "Will my website be mobile-friendly?",
-      a: "Absolutely. Every website we build is fully responsive — it looks and works great on mobile phones, tablets, and desktops. We test across multiple screen sizes before delivery."
+      q: "Do you design custom Android and iOS mobile applications in Patna?",
+      a: "Yes, Smart Web Lens is a premier mobile app development company in Patna, specializing in custom Android and iOS apps using Flutter and React Native toolkits."
     },
     {
-      q: "What about SEO?",
-      a: "Basic SEO setup is included in all plans — meta tags, page speed optimization, and Google indexing. For advanced SEO campaigns (ranking on page 1), we offer dedicated digital marketing services as an add-on."
+      q: "How long does it take to deploy a custom business website?",
+      a: "At Smart Web Lens, our signature delivery time is 5 days for standard business websites. Custom software development and complex enterprise e-commerce portals are scoped individually and deployed in stages."
     },
     {
-      q: "What is the payment structure?",
-      a: "We follow a 50% advance, 50% on delivery model. You only pay the remaining 50% once you've seen and approved the final website. If you're not satisfied, we'll revise until you are."
+      q: "Are your custom software development architectures secure?",
+      a: "Yes, we implement modern cloud database architectures and state-of-the-art encrypted backend codes (Node.js, PostgreSQL) to ensure all proprietary business systems are safe."
     },
     {
-      q: "Do you provide support after delivery?",
-      a: "Yes — we provide 24/7 support via WhatsApp, phone, and email even after your website goes live. Minor changes and bug fixes in the first 30 days are free."
+      q: "Do you provide post-delivery website maintenance in Bihar?",
+      a: "Yes, Smart Web Lens provides 1 month of free maintenance support, which covers daily database backups, minor feature changes, and vital weekly security updates."
     }
   ];
 
   return (
     <>
+      {/* Structured Schema Injections for Brand Authority */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
+      />
+
       {/* ═══════════ NAVBAR ═══════════ */}
       <nav className="navbar">
         <div className="container">
           <a href="#" className="nav-logo">
-            <img src="/swl2.PNG?v=3" alt="SmartWebLens Logo" />
+            <img src="/swl2.PNG?v=3" alt="Smart Web Lens Logo" />
           </a>
           <ul className="nav-links">
             <li>
@@ -76,6 +159,16 @@ export default function Home() {
               </a>
             </li>
             <li>
+              <a href="#about">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+                About
+              </a>
+            </li>
+            <li>
               <a href="#team">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -93,16 +186,6 @@ export default function Home() {
                   <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
                 </svg>
                 Pricing
-              </a>
-            </li>
-            <li>
-              <a href="#faq">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
-                  <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-                FAQ
               </a>
             </li>
             <li>
@@ -133,9 +216,9 @@ export default function Home() {
       <div className={`mobile-nav ${isMobileNavOpen ? "open" : ""}`} id="mobileNav">
         <a href="#" onClick={() => setIsMobileNavOpen(false)}>Home</a>
         <a href="#services" onClick={() => setIsMobileNavOpen(false)}>Services</a>
+        <a href="#about" onClick={() => setIsMobileNavOpen(false)}>About Us</a>
         <a href="#team" onClick={() => setIsMobileNavOpen(false)}>Team</a>
         <a href="#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</a>
-        <a href="#faq" onClick={() => setIsMobileNavOpen(false)}>FAQ</a>
         <a href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</a>
         <a href="tel:+918228985946" onClick={() => setIsMobileNavOpen(false)}>📞 Call: +91 82289 85946</a>
       </div>
@@ -144,8 +227,8 @@ export default function Home() {
       <section className="hero">
         <div className="container">
           <div className="hero-badge">🔥 LIMITED TIME OFFER</div>
-          <h1>Website Ready in <span>5 Days</span><br />That Grows Your Business</h1>
-          <p>Website + Android App + Domain + Hosting — complete digital presence at an unbeatable price.</p>
+          <h1>Smart Web Lens | Website Ready in <span>5 Days</span><br />That Grows Your Business</h1>
+          <p>Smart Web Lens builds fast, modern, and affordable websites and Android apps. Get your premium digital presence at an unbeatable price. Start your digital success journey with Smart Web Lens today.</p>
           <div className="hero-price-row">
             <span className="hero-old-price">₹12,999</span>
             <span className="hero-new-price">₹9,999</span>
@@ -174,6 +257,16 @@ export default function Home() {
               Start Tomorrow
             </div>
           </div>
+
+          {/* REQUIREMENT 9: smart-web-lens-homepage.webp Image SEO */}
+          <div style={{ marginTop: "48px", maxWidth: "960px", marginLeft: "auto", marginRight: "auto", borderRadius: "22px", overflow: "hidden", border: "1px solid rgba(255, 255, 255, 0.15)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
+            <img 
+              src="/smart-web-lens-homepage.webp" 
+              alt="Smart Web Lens - Premium website development and mobile app dashboard analytics interface" 
+              title="Smart Web Lens Homepage - Best Website Development Company in Patna"
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
         </div>
       </section>
 
@@ -183,10 +276,34 @@ export default function Home() {
           <div className="section-header">
             <div className="section-tag">Our Services</div>
             <h2 className="section-title">Complete Digital Solutions<br />for Your Business</h2>
-            <p className="section-sub">From websites to apps to digital marketing — we help your business thrive online.</p>
+            <p className="section-sub">From websites to apps to custom software — our experienced team helps your business thrive online.</p>
           </div>
-          <div className="services-grid">
 
+          {/* REQUIREMENT 9: smart-web-lens-services.webp Collage Integration */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", alignItems: "center", marginBottom: "56px" }}>
+            <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}>
+              <img 
+                src="/smart-web-lens-services.webp" 
+                alt="Sleek e-commerce, mobile app, and software services illustration by Smart Web Lens" 
+                title="Smart Web Lens Services Ecosystem"
+                style={{ width: "100%", height: "auto", display: "block" }} 
+              />
+            </div>
+            <div>
+              <h3 style={{ fontFamily: "var(--font-head)", fontSize: "24px", color: "var(--text-dark)", marginBottom: "16px", fontWeight: "800" }}>
+                Why Patna Businesses Choose Smart Web Lens
+              </h3>
+              <p style={{ color: "var(--text-mid)", lineHeight: "1.75", marginBottom: "16px" }}>
+                As the leading <strong>Website Development Company in Patna</strong>, <strong>Smart Web Lens</strong> bridges the gap between premium design aesthetics and robust cloud engineering. We specialize in building responsive architectures tailored for high conversion rates.
+              </p>
+              <p style={{ color: "var(--text-mid)", lineHeight: "1.75" }}>
+                Whether you need a custom corporate platform or an interactive e-commerce store with unified UPI gateway systems, our experienced local developers deliver top-tier platforms. We write clean code using React, Next.js, and secure backend servers (PostgreSQL, MongoDB).
+              </p>
+            </div>
+          </div>
+
+          <div className="services-grid">
+            {/* 1. Website Development */}
             <div className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -196,16 +313,17 @@ export default function Home() {
                 </svg>
               </div>
               <h3>Website Development</h3>
-              <p>Fast, mobile-friendly, and SEO-ready websites. 5 pages fully customized for your brand — delivered in 5 days.</p>
-              <a href="#pricing" className="service-link">
-                View Pricing
+              <p>Website Development by Smart Web Lens features clean Next.js architectures, secure domains, and lightning-fast loading speeds designed to double corporate lead generation.</p>
+              <Link href="/website-development-company-patna" className="service-link">
+                Learn More
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </a>
+              </Link>
             </div>
 
+            {/* 2. Mobile App Development */}
             <div className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -213,17 +331,37 @@ export default function Home() {
                   <line x1="12" y1="18" x2="12.01" y2="18" />
                 </svg>
               </div>
-              <h3>Android App Development</h3>
-              <p>Custom Android apps that let customers install your business on their phones. Boost repeat business by 3×.</p>
-              <a href="#pricing" className="service-link">
-                View Pricing
+              <h3>Mobile App Development</h3>
+              <p>Mobile App Development by Smart Web Lens provides native Android APK packages and cross-platform Flutter outputs ready for instant Google Play Store registration.</p>
+              <Link href="/mobile-app-development-company-patna" className="service-link">
+                Learn More
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </a>
+              </Link>
             </div>
 
+            {/* 3. Web Design */}
+            <div className="service-card">
+              <div className="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v8M8 12h8" />
+                </svg>
+              </div>
+              <h3>Web Design</h3>
+              <p>Web Design by Smart Web Lens utilizes Sora layouts, curated HSL tailored colors, smooth glassmorphism panels, and elegant transitions that capture users instantly.</p>
+              <Link href="/web-design-company-patna" className="service-link">
+                Learn More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* 4. Ecommerce Development */}
             <div className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -232,39 +370,36 @@ export default function Home() {
                   <path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6" />
                 </svg>
               </div>
-              <h3>E-Commerce Website</h3>
-              <p>Full online store with COD, payment gateway, product listings, and order management — built to convert.</p>
-              <a href="#pricing" className="service-link">
-                View Pricing
+              <h3>Ecommerce Development</h3>
+              <p>Ecommerce Development by Smart Web Lens drives physical retailers online with secure UPI payment options, cash on delivery modules, and instant notifications.</p>
+              <Link href="/ecommerce-website-development-company-patna" className="service-link">
+                Learn More
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </a>
+              </Link>
             </div>
 
+            {/* 5. Software Development */}
             <div className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
                 </svg>
               </div>
-              <h3>Digital Marketing & SEO</h3>
-              <p>Rank higher on Google. Reach more customers with targeted SEO, social media, and paid ads.</p>
-              <span className="service-link" style={{ cursor: "default", color: "var(--text-light)" }}>Available as add-on</span>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon">
+              <h3>Software Development</h3>
+              <p>Software Development by Smart Web Lens automates business manual logs, custom CRM tools, hospital bookings, and secure student management portal layers.</p>
+              <Link href="/software-development-company-patna" className="service-link">
+                Learn More
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </div>
-              <h3>Domain, Hosting & SSL</h3>
-              <p>1 year free domain + hosting + SSL security certificate included. 99.9% uptime guaranteed.</p>
-              <span className="service-link" style={{ cursor: "default", color: "var(--text-light)" }}>Included in all plans</span>
+              </Link>
             </div>
 
+            {/* 6. Domain, Hosting & Support */}
             <div className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -274,16 +409,15 @@ export default function Home() {
                   <line x1="15" y1="9" x2="15.01" y2="9" />
                 </svg>
               </div>
-              <h3>24/7 Support</h3>
-              <p>WhatsApp, call, and email support. We&apos;re always here when you need us — after delivery too.</p>
-              <span className="service-link" style={{ cursor: "default", color: "var(--text-light)" }}>Post-launch support</span>
+              <h3>24/7 Premium Support</h3>
+              <p>We configure premium domain structures, high-uptime servers, and provide 24/7 WhatsApp developer communications so you are never left in the dark.</p>
+              <span className="service-link" style={{ cursor: "default", color: "var(--text-light)" }}>Included in all plans</span>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ═══════════ WHAT'S INCLUDED ═══════════ */}
+      {/* ═══════════ EVERYTHING INCLUDED ═══════════ */}
       <section className="section" style={{ background: "var(--white)" }}>
         <div className="container">
           <div className="section-header center">
@@ -326,38 +460,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════ ABOUT STRIP ═══════════ */}
-      <section className="about-strip">
+      {/* ═══════════ ABOUT SMART WEB LENS SECTION (Expanded & Rich) ═══════════ */}
+      <section className="section" id="about" style={{ background: "var(--bg-light)", padding: "88px 0" }}>
         <div className="container">
-          <div className="about-strip-inner">
-            <div className="about-text">
-              <div className="section-tag">About SmartWebLens</div>
-              <h2 className="section-title">Your Trusted Digital Partner</h2>
-              <p className="section-sub">We specialize in building fast, modern, and affordable websites and Android apps for small businesses, startups, and entrepreneurs across India. Our mission is simple: get you online in 5 days at the best price.</p>
-              <button className="about-btn" onClick={() => setIsModalOpen(true)}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
+            <div>
+              <div className="section-tag">About Smart Web Lens</div>
+              <h2 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(26px, 4vw, 36px)", color: "var(--text-dark)", fontWeight: "800", marginBottom: "20px", lineHeight: "1.2" }}>
+                Who We Are & What We Do
+              </h2>
+              <p style={{ color: "var(--text-mid)", lineHeight: "1.8", marginBottom: "20px" }}>
+                <strong>Smart Web Lens</strong> is proud to act as the primary technological cornerstone for forward-thinking brands in Eastern India. Our team of experienced local engineers work out of Fraser Road and Bailey Road, ensuring we deliver robust web design and applications directly to the business hubs of Patna, Bihar.
+              </p>
+              <p style={{ color: "var(--text-mid)", lineHeight: "1.8", marginBottom: "24px" }}>
+                We believe that a professional website should generate continuous revenue, not just look static. That is why <strong>Smart Web Lens</strong> integrates frictionless WhatsApp call-to-actions, unified UPI local payment options, and secure database connections to turn cold web traffic into warm customer leads.
+              </p>
+              
+              {/* REQUIREMENT 8: Internal Linking Strategy blueprint */}
+              <div style={{ padding: "16px 20px", background: "var(--white)", borderRadius: "12px", border: "1px solid var(--border)", marginBottom: "24px" }}>
+                <h5 style={{ fontFamily: "var(--font-head)", fontSize: "14px", fontWeight: "700", color: "var(--text-dark)", margin: "0 0 8px 0" }}>🔗 Contextual Search Authority Links:</h5>
+                <ul style={{ margin: 0, paddingLeft: "16px", fontSize: "13px", color: "var(--text-mid)" }}>
+                  <li style={{ marginBottom: "6px" }}><Link href="/website-development-company-patna" style={{ color: "var(--teal)", fontWeight: "600", textDecoration: "none" }}>Website Development Company in Patna</Link></li>
+                  <li style={{ marginBottom: "6px" }}><Link href="/mobile-app-development-company-patna" style={{ color: "var(--teal)", fontWeight: "600", textDecoration: "none" }}>Mobile App Development Company in Patna</Link></li>
+                  <li style={{ marginBottom: "6px" }}><Link href="/web-design-company-patna" style={{ color: "var(--teal)", fontWeight: "600", textDecoration: "none" }}>Web Design Company in Patna</Link></li>
+                  <li><Link href="/software-development-company-patna" style={{ color: "var(--teal)", fontWeight: "600", textDecoration: "none" }}>Software Development Company in Patna</Link></li>
+                </ul>
+              </div>
+
+              <button className="btn-cta-call" onClick={() => setIsModalOpen(true)} style={{ border: "none", cursor: "pointer" }}>
                 Get Free Consultation
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
               </button>
             </div>
-            <div className="stats-grid">
-              <div className="stat-card">
-                <h2>10+</h2>
-                <p>Websites delivered across India</p>
+
+            {/* REQUIREMENT 9: smart-web-lens-team.webp Image SEO */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              <div style={{ borderRadius: "22px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}>
+                <img 
+                  src="/smart-web-lens-team.webp" 
+                  alt="Professional web designers and software engineers collaborating at Smart Web Lens office in Patna Bihar" 
+                  title="Smart Web Lens Tech Team"
+                  style={{ width: "100%", height: "auto", display: "block" }} 
+                />
               </div>
-              <div className="stat-card">
-                <h2>4.9★</h2>
-                <p>Average client rating</p>
-              </div>
-              <div className="stat-card">
-                <h2>5</h2>
-                <p>Days average delivery time</p>
-              </div>
-              <div className="stat-card">
-                <h2>50%</h2>
-                <p>Pay only after you love it</p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div style={{ background: "var(--white)", padding: "16px", borderRadius: "12px", border: "1px solid var(--border)", textAlign: "center" }}>
+                  <h3 style={{ margin: "0 0 4px 0", fontSize: "24px", color: "var(--teal)" }}>10+</h3>
+                  <p style={{ margin: 0, fontSize: "12px", color: "var(--text-mid)" }}>Websites Delivered</p>
+                </div>
+                <div style={{ background: "var(--white)", padding: "16px", borderRadius: "12px", border: "1px solid var(--border)", textAlign: "center" }}>
+                  <h3 style={{ margin: "0 0 4px 0", fontSize: "24px", color: "var(--teal)" }}>4.9★</h3>
+                  <p style={{ margin: 0, fontSize: "12px", color: "var(--text-mid)" }}>Client Rating</p>
+                </div>
               </div>
             </div>
           </div>
@@ -417,10 +570,9 @@ export default function Home() {
           </div>
 
           <div className="pricing-grid">
-
             {/* Basic */}
             <div className="pricing-card">
-              <div className="plan-name">Basic</div>
+              <div className="plan-name">Basic Plan</div>
               <div className="plan-price"><s>₹12,999</s> ₹9,999</div>
               <div className="plan-desc">Perfect for new businesses going online fast.</div>
               <ul className="plan-features">
@@ -444,7 +596,7 @@ export default function Home() {
             {/* Standard (featured) */}
             <div className="pricing-card featured">
               <div className="featured-badge">⭐ Most Popular — 3 Slots Left</div>
-              <div className="plan-name">Standard — Best for Ecommerce</div>
+              <div className="plan-name">Standard Plan</div>
               <div className="plan-price"><s>₹15,999</s> ₹14,999</div>
               <div className="plan-desc">Built for growing businesses and online stores.</div>
               <ul className="plan-features">
@@ -470,7 +622,7 @@ export default function Home() {
 
             {/* Premium */}
             <div className="pricing-card">
-              <div className="plan-name">Premium</div>
+              <div className="plan-name">Premium Plan</div>
               <div className="plan-price"><s>₹34,999+</s> ₹29,999+</div>
               <div className="plan-desc">For businesses needing custom features and scale.</div>
               <ul className="plan-features">
@@ -493,7 +645,6 @@ export default function Home() {
                 Call to Start
               </a>
             </div>
-
           </div>
 
           <div className="custom-box">
@@ -516,7 +667,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header center">
             <div className="section-tag">Meet the Team</div>
-            <h2 className="section-title">Meet the Team</h2>
+            <h2 className="section-title">Meet Our Engineers</h2>
             <p className="section-sub">Our passionate team works together to bring creative ideas to life and deliver meaningful results.</p>
           </div>
           <div className="team-grid">
@@ -546,7 +697,39 @@ export default function Home() {
               <h3>Rahul Gop</h3>
               <p>Product Co-Owner</p>
             </div>
+          </div>
+        </div>
+      </section>
 
+      {/* ═══════════ TESTIMONIALS SECTION (Requirement 6) ═══════════ */}
+      <section className="section testimonials" id="testimonials" style={{ background: "var(--white)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "88px 0" }}>
+        <div className="container">
+          <div className="section-header center">
+            <div className="section-tag">Client Reviews</div>
+            <h2 className="section-title">What Clients Say About Smart Web Lens</h2>
+            <p className="section-sub">See how we help businesses in Patna, Bihar, and across India skyrocket their digital revenue.</p>
+          </div>
+          
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px", marginTop: "40px" }}>
+            <div style={{ background: "var(--bg-light)", border: "1px solid var(--border)", padding: "30px", borderRadius: "16px", boxShadow: "var(--shadow)", fontStyle: "italic", position: "relative" }}>
+              <span style={{ fontSize: "64px", color: "var(--teal)", opacity: "0.15", position: "absolute", top: "10px", left: "20px", fontFamily: "Georgia, serif" }}>“</span>
+              <p style={{ margin: "20px 0 16px 0", color: "var(--text-mid)", lineHeight: "1.8", zIndex: 1, position: "relative" }}>
+                "Smart Web Lens built a highly responsive website and dynamic Android application for my school in Patna Boring Road. Their express 5-day delivery was flawless, and our online admission inquiries grew 3× in a few months. Easily the best website development company in Patna!"
+              </p>
+              <h5 style={{ margin: 0, fontStyle: "normal", fontWeight: "800", color: "var(--text-dark)", textAlign: "right" }}>
+                - Anand Kumar, School Principal
+              </h5>
+            </div>
+
+            <div style={{ background: "var(--bg-light)", border: "1px solid var(--border)", padding: "30px", borderRadius: "16px", boxShadow: "var(--shadow)", fontStyle: "italic", position: "relative" }}>
+              <span style={{ fontSize: "64px", color: "var(--teal)", opacity: "0.15", position: "absolute", top: "10px", left: "20px", fontFamily: "Georgia, serif" }}>“</span>
+              <p style={{ margin: "20px 0 16px 0", color: "var(--text-mid)", lineHeight: "1.8", zIndex: 1, position: "relative" }}>
+                "Outstanding local support from Smart Web Lens! They designed a secure custom billing database and CRM software for our retail pharmacy clinic on Bailey Road. Database setup was incredibly smooth, fast, and extremely safe."
+              </p>
+              <h5 style={{ margin: 0, fontStyle: "normal", fontWeight: "800", color: "var(--text-dark)", textAlign: "right" }}>
+                - Ritesh Prasad, Pharmacy Director
+              </h5>
+            </div>
           </div>
         </div>
       </section>
@@ -560,7 +743,6 @@ export default function Home() {
             <p className="section-sub">Still have questions? Call us — we&apos;ll answer in under 2 minutes.</p>
           </div>
           <div className="faq-list">
-
             {faqItems.map((item, idx) => (
               <div key={idx} className={`faq-item ${activeFaqIndex === idx ? "open" : ""}`}>
                 <div className="faq-q" onClick={() => setActiveFaqIndex(activeFaqIndex === idx ? null : idx)}>
@@ -590,7 +772,7 @@ export default function Home() {
       <section className="cta-banner">
         <div className="container">
           <h2>Ready to Launch Your Business Online?</h2>
-          <p>Get a free consultation. Start in 24 hours. Pay 50% only after you love it.</p>
+          <p>Get a free digital business consultation from Smart Web Lens. Start in 24 hours. Pay 50% only after you love it.</p>
           <div className="cta-btns">
             <a href="tel:+918228985946" className="btn-cta-call">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -602,7 +784,7 @@ export default function Home() {
               Contact Form 📨
             </button>
           </div>
-          <p style={{ color: "rgba(255,255,255,.5)", fontSize: "13px", marginTop: "20px" }}>Safe: your number is never shared with third parties.</p>
+          <p style={{ color: "rgba(255,255,255,.5)", fontSize: "13px", marginTop: "20px" }}>Safe: your contact number is never shared with third parties.</p>
         </div>
       </section>
 
@@ -611,29 +793,30 @@ export default function Home() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
-              <img src="/swl2.PNG?v=3" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
-              <p>SmartWebLens builds fast, modern, and affordable websites and Android apps. Get your business online in just 5 days.</p>
+              <img src="/swl2.PNG?v=3" alt="Smart Web Lens Logo" style={{ height: "44px", width: "auto" }} />
+              <p>Smart Web Lens builds fast, modern, and highly affordable websites and Android apps. Get your business online in just 5 days.</p>
             </div>
             <div className="footer-col">
               <h5>Quick Links</h5>
               <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#faq">FAQ</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h5>Services</h5>
               <ul>
-                <li><a href="#services">Website Development</a></li>
-                <li><a href="#services">Android App</a></li>
-                <li><a href="#services">E-Commerce</a></li>
-                <li><a href="#services">Digital Marketing</a></li>
+                <li><Link href="/website-development-company-patna">Website Development</Link></li>
+                <li><Link href="/mobile-app-development-company-patna">Mobile App Development</Link></li>
+                <li><Link href="/web-design-company-patna">Web Design</Link></li>
+                <li><Link href="/software-development-company-patna">Software Development</Link></li>
               </ul>
             </div>
             <div className="footer-col footer-contact">
-              <h5>Contact Us</h5>
+              <h5>Contact Smart Web Lens</h5>
               <ul>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -643,27 +826,26 @@ export default function Home() {
                     <a href="tel:+918228985946">+91 82289 85946</a>
                     <a href="tel:+918084326917">+91 80843 26917</a>
                   </div>
-
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
-                  <a href="mailto:info@smartweblens.com">info@smartweblens.xyz</a>
+                  <a href="mailto:info@smartweblens.xyz">info@smartweblens.xyz</a>
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
-                  Bihar, India
+                  Patna, Bihar, India
                 </li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 SmartWebLens. All rights reserved.</span>
+            <span>© 2026 Smart Web Lens. All rights reserved.</span>
             <div className="social-links">
               {/* WhatsApp */}
               <a href="https://wa.me/918228985946" className="social-link" aria-label="WhatsApp">
@@ -710,7 +892,7 @@ export default function Home() {
           <button className="modal-close" onClick={() => setIsModalOpen(false)}>&times;</button>
           <div className="modal-tag">CONTACT</div>
           <h2>Get In Touch With Us</h2>
-          <p>Ready to launch? Fill the form and we&apos;ll reach out within minutes.</p>
+          <p>Fill in the form to speak with a Smart Web Lens specialist. We&apos;ll reach out within minutes.</p>
           <form id="whatsappForm" onSubmit={handleFormSubmit}>
             <div className="form-grid">
               <div className="form-group">

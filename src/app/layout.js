@@ -14,8 +14,33 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "SmartWebLens – Website & App Development in 5 Days",
-  description: "SmartWebLens builds fast, modern websites and Android apps for businesses. Professional web solutions in just 5 days.",
+  title: "Smart Web Lens | Best Website Development Company in Patna",
+  description: "Smart Web Lens is the leading website development company in Patna, Bihar. We engineer premium responsive websites, mobile apps, and custom software in 5 days.",
+  alternates: {
+    canonical: "https://www.smartweblens.xyz/",
+  },
+  openGraph: {
+    title: "Website Development Company in Patna | Smart Web Lens",
+    description: "Get elite corporate websites, mobile apps, and custom software developed in Patna, Bihar. 5-day express deployment and 24/7 support by Smart Web Lens.",
+    url: "https://www.smartweblens.xyz/",
+    siteName: "Smart Web Lens",
+    images: [
+      {
+        url: "https://www.smartweblens.xyz/swl2.PNG",
+        width: 1200,
+        height: 630,
+        alt: "Smart Web Lens Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Website & App Development Company in Patna | Smart Web Lens",
+    description: "Top web design and software engineering agency in Patna, Bihar by Smart Web Lens. Custom dynamic websites and Play Store ready Android apps.",
+    images: ["https://www.smartweblens.xyz/swl2.PNG"],
+  },
   icons: {
     icon: "/favicon.ico",
   },
