@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Scoped adjustments to make sure custom homepage variables play beautifully with Tailwind utility classes */
+:root {
+  --blog-indigo: #4f46e5;
+  --blog-indigo-dark: #3730a3;
+  --blog-indigo-light: #e0e7ff;
+}
+
+/* Smooth reading progress bar animation */
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.reading-progress-fill {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: progress linear;
+  animation-timeline: scroll();
+}
+
+/* Lift on hover transitions */
+.blog-card-transition {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Category horizontal filter hides scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
