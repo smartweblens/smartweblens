@@ -53,7 +53,7 @@ export default function Home() {
       <nav className="navbar">
         <div className="container">
           <a href="#" className="nav-logo">
-            <img src="/swl2.PNG?v=2" alt="SmartWebLens Logo" />
+            <img src="/swl2.PNG?v=3" alt="SmartWebLens Logo" />
           </a>
           <ul className="nav-links">
             <li>
@@ -541,7 +541,7 @@ export default function Home() {
             {/* Rahul Gop */}
             <div className="team-card">
               <div className="team-avatar-wrapper">
-                <img src="/rahulgop.jpg?v=2" alt="Rahul Gop" className="team-avatar" />
+                <img src="/rahulgop.jpg?v=3" alt="Rahul Gop" className="team-avatar" />
               </div>
               <h3>Rahul Gop</h3>
               <p>Product Co-Owner</p>
@@ -611,7 +611,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
-              <img src="/swl2.PNG?v=2" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
+              <img src="/swl2.PNG?v=3" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
               <p>SmartWebLens builds fast, modern, and affordable websites and Android apps. Get your business online in just 5 days.</p>
             </div>
             <div className="footer-col">

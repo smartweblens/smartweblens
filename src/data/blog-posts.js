@@ -85,7 +85,7 @@ export const blogPosts = [
     excerpt: "Examine the premium aesthetic features and micro-animations driving high conversions and visual excellence on top modern websites in 2026.",
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
     author: "Rahul Gop",
-    authorImage: "/rahulgop.jpg?v=2",
+    authorImage: "/rahulgop.jpg?v=3",
     content: `
       <h2>The Evolution of Modern Visual Excellence</h2>
       <p>Web design in 2026 is no longer about static grid columns and basic stock imagery. Today's users expect rich, responsive layouts that feel alive, interactive, and premium. To stand out from generic layouts, small businesses must adopt state-of-the-art design aesthetics.</p>
@@ -186,7 +186,7 @@ export const blogPosts = [
     excerpt: "Learn how smart call-to-actions, unified UPI options, and frictionless mobile layouts can skyrocket your incoming business inquiries.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
     author: "Rahul Gop",
-    authorImage: "/rahulgop.jpg?v=2",
+    authorImage: "/rahulgop.jpg?v=3",
     content: `
       <h2>Websites Should Generate Revenue, Not Just Look Good</h2>
       <p>Too many small business owners treat their websites like static brochure panels. They pay a design agency, throw up basic text and pictures, and wait for calls to roll in. But a website must act as an automated, high-speed sales channel that captures and converts interest. Let's see how a modern web interface can multiply your incoming leads.</p>
