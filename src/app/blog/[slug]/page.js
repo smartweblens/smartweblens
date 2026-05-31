@@ -6,7 +6,6 @@ import { useParams, useRouter } from "next/navigation";
 import { 
   Calendar, 
   Clock, 
-  User, 
   ArrowLeft, 
   Link2, 
   Sparkles,
@@ -88,7 +87,7 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin h-6 w-6 border-2 border-indigo-600 border-t-transparent rounded-full" />
+        <div className="animate-spin h-6 w-6 border-2 border-indigo-650 border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -116,8 +115,7 @@ export default function BlogPostPage() {
   };
 
   return (
-    <div className="relative pb-24 transition-all">
-      
+    <>
       {/* Dynamic JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -125,168 +123,171 @@ export default function BlogPostPage() {
       />
 
       {/* READING PROGRESS BAR */}
-      <div 
-        className="fixed top-[69px] left-0 h-1 bg-indigo-600 dark:bg-indigo-500 z-50 transition-all duration-75"
-        style={{ width: `${scrollProgress}%` }}
-      />
+      <div className="reading-bar" style={{ width: `${scrollProgress}%` }} />
 
-      {/* Hero Header */}
-      <header className="max-w-4xl mx-auto px-6 pt-12 md:pt-20 pb-8 text-center md:text-left">
-        {/* Back Link */}
-        <Link 
-          href="/blog" 
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8 cursor-pointer"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Blog List
-        </Link>
+      {/* ARTICLE HEADER HERO */}
+      <header className="section" style={{ background: "var(--white)", padding: "56px 0 32px" }}>
+        <div className="container">
+          
+          {/* Back link */}
+          <Link 
+            href="/blog" 
+            className="blog-card-link"
+            style={{ textDecoration: "none", marginBottom: "24px", display: "inline-flex", alignItems: "center", gap: "6px" }}
+          >
+            <ArrowLeft style={{ width: "16px", height: "16px" }} />
+            Back to Blog Index
+          </Link>
 
-        {/* Category Tag */}
-        <span className="inline-flex px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-100/50 dark:border-indigo-900/50 mb-5">
-          {post.category}
-        </span>
-
-        {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] mb-6">
-          {post.title}
-        </h1>
-
-        {/* Meta Row */}
-        <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 border-b border-slate-200/80 dark:border-slate-800/80 pb-6 text-xs text-slate-400 dark:text-slate-500">
-          <div className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs font-bold text-indigo-600 dark:text-indigo-400 overflow-hidden">
-              <span>{post.author[0]}</span>
-            </div>
-            <span className="font-bold text-slate-650 dark:text-slate-350">{post.author}</span>
+          {/* Category tag */}
+          <div style={{ margin: "16px 0" }}>
+            <span className="section-tag" style={{ display: "inline-block", background: "var(--teal-light)", color: "var(--teal)", textTransform: "uppercase" }}>
+              {post.category}
+            </span>
           </div>
 
-          <span className="flex items-center gap-1.5">
-            <Calendar className="h-3.5 w-3.5" />
-            {post.publishDate}
-          </span>
+          {/* Title */}
+          <h1 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(26px, 4vw, 44px)", fontWeight: "800", color: "var(--text-dark)", margin: "16px 0 24px", lineHeight: "1.25" }}>
+            {post.title}
+          </h1>
 
-          <span className="flex items-center gap-1.5">
-            <Clock className="h-3.5 w-3.5" />
-            {post.readTime}
-          </span>
+          {/* Meta details */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", paddingBottom: "24px", borderBottom: "1px solid var(--border)", fontSize: "13px", color: "var(--text-light)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: "750", color: "var(--text-dark)" }}>
+              <img src={post.authorImage || "/IMG_6840.jpg"} alt={post.author} style={{ width: "26px", height: "26px", borderRadius: "50%", border: "1.5px solid var(--teal)", objectFit: "cover" }} />
+              <span>{post.author}</span>
+            </div>
+
+            <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <Calendar style={{ width: "14px", height: "14px", color: "var(--teal)" }} />
+              {post.publishDate}
+            </span>
+
+            <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <Clock style={{ width: "14px", height: "14px", color: "var(--teal)" }} />
+              {post.readTime}
+            </span>
+          </div>
         </div>
       </header>
 
-      {/* Featured Image */}
-      <div className="max-w-5xl mx-auto px-6 mb-12 md:mb-16">
-        <div className="aspect-[21/9] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-800/80 shadow-md">
-          <img 
-            src={post.image} 
-            alt={post.title} 
-            className="w-full h-full object-cover" 
-          />
+      {/* Featured Banner Image */}
+      <section style={{ background: "var(--white)", paddingBottom: "48px" }}>
+        <div className="container">
+          <div style={{ aspectRatio: "21 / 9", borderRadius: "22px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 10px 30px rgba(52, 156, 169, 0.03)" }}>
+            <img 
+              src={post.image} 
+              alt={post.title} 
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* MAIN CONTAINER (Content & Sidebar/Sharing) */}
-      <div className="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-        
-        {/* SHARING SIDEBAR (DESKTOP) */}
-        <aside className="md:col-span-1 hidden md:block">
-          <div className="sticky top-28 flex flex-col gap-5 border border-slate-200/60 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm p-5 rounded-2xl">
-            <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-405 dark:text-slate-500">
-              Share Article
-            </h4>
+      {/* BODY CONTENT PANEL */}
+      <section style={{ background: "var(--white)", paddingBottom: "88px" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "48px", alignItems: "start" }}>
+          
+          {/* Main Article column */}
+          <div style={{ gridColumn: "span 3" }}>
+            <div 
+              className="prose-custom" 
+              dangerouslySetInnerHTML={{ __html: post.content }} 
+            />
+
+            {/* Mobile Sharing widget */}
+            <div className="flex md:hidden items-center justify-center gap-6 border-t border-b border-slate-200/80 dark:border-slate-800/80 py-4 my-10 text-xs text-slate-500 dark:text-slate-400">
+              <span className="font-bold uppercase tracking-wider text-[10px] text-slate-400">Share:</span>
+              <a href="#" className="hover:text-indigo-650 transition-colors"><TwitterIcon className="h-4.5 w-4.5" /></a>
+              <a href="#" className="hover:text-indigo-650 transition-colors"><LinkedinIcon className="h-4.5 w-4.5" /></a>
+              <button onClick={handleCopyLink} className="hover:text-indigo-650 transition-colors cursor-pointer">
+                {copied ? <span className="text-emerald-500 font-bold">Copied!</span> : <Link2 className="h-4.5 w-4.5" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Sidebar sharing box (Desktop only) */}
+          <aside className="share-box hidden md:block" style={{ gridColumn: "span 1" }}>
+            <div className="share-title">Share Article</div>
             <a 
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-xs font-semibold text-slate-550 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="share-link"
+              style={{ textDecoration: "none" }}
             >
-              <TwitterIcon className="h-4 w-4" />
-              Twitter
+              <TwitterIcon />
+              Twitter / X
             </a>
             <a 
               href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}&title=${encodeURIComponent(post.title)}`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-xs font-semibold text-slate-550 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="share-link"
+              style={{ textDecoration: "none" }}
             >
-              <LinkedinIcon className="h-4 w-4" />
+              <LinkedinIcon />
               LinkedIn
             </a>
             <button 
               onClick={handleCopyLink}
-              className="inline-flex items-center gap-2.5 text-xs font-semibold text-slate-550 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer text-left"
+              className="share-link"
+              style={{ border: "none", background: "none", width: "100%", cursor: "pointer" }}
             >
-              <Link2 className="h-4 w-4" />
-              {copied ? <span className="text-emerald-500 font-bold flex items-center gap-1"><CheckCircle2 className="h-3 w-3" /> Copied!</span> : "Copy Link"}
+              <Link2 style={{ width: "16px", height: "16px" }} />
+              {copied ? <span style={{ color: "var(--green)", fontWeight: "700" }}>Copied!</span> : "Copy Link"}
             </button>
-          </div>
-        </aside>
-
-        {/* TYPOGRAPHY CONTENT PANEL */}
-        <article className="md:col-span-3">
-          <div 
-            className="prose-custom dark:prose-dark" 
-            dangerouslySetInnerHTML={{ __html: post.content }} 
-          />
-
-          {/* Social Share (Mobile) */}
-          <div className="flex md:hidden items-center justify-center gap-6 border-t border-b border-slate-200/80 dark:border-slate-800/80 py-4 my-10 text-xs text-slate-500 dark:text-slate-400">
-            <span className="font-bold uppercase tracking-wider text-[10px] text-slate-400">Share:</span>
-            <a href="#" className="hover:text-indigo-600 transition-colors"><TwitterIcon className="h-4.5 w-4.5" /></a>
-            <a href="#" className="hover:text-indigo-600 transition-colors"><LinkedinIcon className="h-4.5 w-4.5" /></a>
-            <button onClick={handleCopyLink} className="hover:text-indigo-600 transition-colors cursor-pointer">
-              {copied ? <span className="text-emerald-500 font-bold">Copied!</span> : <Link2 className="h-4.5 w-4.5" />}
-            </button>
-          </div>
-        </article>
-      </div>
-
-      {/* RELATED POSTS SECTION */}
-      <section className="max-w-6xl mx-auto px-6 mt-20 md:mt-32 pt-16 border-t border-slate-200/80 dark:border-slate-800/80">
-        <div className="flex items-center gap-2 mb-10">
-          <Sparkles className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Related Articles
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {relatedPosts.map((rPost) => (
-            <article 
-              key={rPost.slug}
-              className="group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/60 dark:border-slate-800/80 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-350"
-            >
-              <div className="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-                <img 
-                  src={rPost.image} 
-                  alt={rPost.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="p-5 flex flex-col flex-grow">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2">
-                  {rPost.category}
-                </span>
-
-                <h3 className="text-sm font-bold text-slate-850 dark:text-white line-clamp-2 leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-4">
-                  <Link href={`/blog/${rPost.slug}`} className="focus:outline-none">
-                    {rPost.title}
-                  </Link>
-                </h3>
-
-                <Link 
-                  href={`/blog/${rPost.slug}`}
-                  className="mt-auto inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 group/link"
-                >
-                  Read Article
-                  <ArrowRight className="h-3 w-3 transition-transform group-hover/link:translate-x-0.5" />
-                </Link>
-              </div>
-            </article>
-          ))}
+          </aside>
         </div>
       </section>
 
-    </div>
+      {/* RELATED POSTS SECTION */}
+      <section className="section" style={{ background: "var(--bg)", borderTop: "1px solid var(--border)", padding: "88px 0" }}>
+        <div className="container">
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "40px" }}>
+            <Sparkles style={{ width: "20px", height: "20px", color: "var(--teal)" }} />
+            <h2 style={{ fontFamily: "var(--font-head)", fontSize: "24px", fontWeight: "800", color: "var(--text-dark)", margin: 0 }}>
+              Related Articles
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
+            {relatedPosts.map((rPost) => (
+              <article key={rPost.slug} className="blog-card">
+                <div className="blog-card-image-wrapper">
+                  <img 
+                    src={rPost.image} 
+                    alt={rPost.title} 
+                    className="blog-card-image"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="p-5 flex flex-col flex-grow" style={{ padding: "24px" }}>
+                  <span className="blog-card-category-badge" style={{ position: "static", display: "inline-block", background: "var(--teal-light)", border: "none", boxShadow: "none", color: "var(--teal)", marginBottom: "8px", width: "fit-content" }}>
+                    {rPost.category}
+                  </span>
+
+                  <h3 className="blog-card-title" style={{ fontSize: "16px", margin: "8px 0 16px" }}>
+                    <Link href={`/blog/${rPost.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
+                      {rPost.title}
+                    </Link>
+                  </h3>
+
+                  <Link 
+                    href={`/blog/${rPost.slug}`}
+                    className="blog-card-link"
+                    style={{ textDecoration: "none", marginTop: "auto" }}
+                  >
+                    Read Article
+                    <ArrowRight style={{ width: "12px", height: "12px", marginLeft: "4px" }} />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

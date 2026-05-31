@@ -1,160 +1,190 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Sun, Moon, ArrowUpRight, ArrowLeft } from "lucide-react";
 import "./blog.css";
 
 export default function BlogLayout({ children }) {
-  const [isDark, setIsDark] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    // Check local storage or default to light
-    const savedTheme = localStorage.getItem("swl-blog-theme");
-    if (savedTheme === "dark") {
-      setIsDark(true);
-    }
-
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    localStorage.setItem("swl-blog-theme", newTheme ? "dark" : "light");
-  };
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <div className={isDark ? "dark" : ""}>
-      <div className="min-h-screen transition-colors duration-300 bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
-        
-        {/* HEADER NAVIGATION */}
-        <header 
-          className={`sticky top-0 z-50 transition-all duration-300 border-b ${
-            scrolled 
-              ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-md py-3 border-slate-200/80 dark:border-slate-800/80 shadow-sm" 
-              : "bg-white dark:bg-slate-950 py-5 border-slate-200 dark:border-slate-850"
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <img 
-                src="/swl2.PNG" 
-                alt="SmartWebLens" 
-                className="h-9 w-auto object-contain transition-transform group-hover:scale-102" 
-              />
-              <span className="text-xs uppercase tracking-widest font-bold bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded border border-indigo-100/50 dark:border-indigo-900/50">
-                Blog
-              </span>
-            </Link>
-
-            {/* Navigation links */}
-            <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
-              <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+    <>
+      {/* ═══════════ NAVBAR ═══════════ */}
+      <nav className="navbar">
+        <div className="container">
+          <Link href="/" className="nav-logo">
+            <img src="/swl2.PNG" alt="SmartWebLens Logo" />
+          </Link>
+          <ul className="nav-links">
+            <li>
+              <Link href="/">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
                 Home
               </Link>
-              <Link href="/blog" className="text-indigo-600 dark:text-indigo-400">
-                Blog Index
-              </Link>
-              <a href="/#services" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            </li>
+            <li>
+              <a href="/#services">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
                 Services
               </a>
-              <a href="/#pricing" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            </li>
+            <li>
+              <a href="/#team">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                Team
+              </a>
+            </li>
+            <li>
+              <a href="/#pricing">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                </svg>
                 Pricing
               </a>
-              <a href="/#faq" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            </li>
+            <li>
+              <a href="/#faq">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
                 FAQ
               </a>
-            </nav>
-
-            {/* CTAs & Theme Toggle */}
-            <div className="flex items-center gap-4">
-              {/* Theme Toggle Button */}
-              <button 
-                onClick={toggleTheme} 
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/50 dark:border-slate-800 transition-all cursor-pointer"
-                aria-label="Toggle Theme"
-              >
-                {isDark ? <Sun className="h-4.5 w-4.5 text-yellow-500" /> : <Moon className="h-4.5 w-4.5 text-indigo-600" />}
-              </button>
-
-              {/* Start Project Button */}
-              <Link 
-                href="/contact" 
-                className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/35 transition-all transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                Start Your Project
-                <ArrowUpRight className="h-3.5 w-3.5" />
+            </li>
+            <li>
+              <Link href="/blog" className="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                Blog
               </Link>
-            </div>
+            </li>
+          </ul>
+          <div className="nav-cta-group">
+            <a href="tel:+918228985946" className="btn-call-nav" aria-label="Call us">📞</a>
+            <Link href="/contact" className="btn-contact-nav">Contact Us</Link>
+            <button 
+              className={`hamburger ${isMobileNavOpen ? "open" : ""}`} 
+              onClick={() => setIsMobileNavOpen(!isMobileNavOpen)} 
+              aria-label="Menu"
+            >
+              <span></span><span></span><span></span>
+            </button>
           </div>
-        </header>
+        </div>
+      </nav>
 
-        {/* MAIN BODY CONTENT */}
-        <main className="flex-grow">
-          {children}
-        </main>
-
-        {/* DEDICATED BLOG FOOTER */}
-        <footer className="border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950/60 py-12 transition-all">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              {/* Brand Description */}
-              <div>
-                <img src="/swl2.PNG" alt="SmartWebLens" className="h-9 w-auto mb-4" />
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
-                  We build highly scalable websites and native Android apps optimized for local search, UPI operations, and rapid deployment in Bihar and across India.
-                </p>
-              </div>
-
-              {/* Navigation Columns */}
-              <div className="flex md:justify-center gap-16 col-span-2">
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-850 dark:text-slate-100 mb-4">
-                    Company
-                  </h4>
-                  <ul className="space-y-2.5 text-sm text-slate-500 dark:text-slate-400">
-                    <li><Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</Link></li>
-                    <li><Link href="/blog" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Blog</Link></li>
-                    <li><Link href="/contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact Form</Link></li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-850 dark:text-slate-100 mb-4">
-                    Expertise
-                  </h4>
-                  <ul className="space-y-2.5 text-sm text-slate-500 dark:text-slate-400">
-                    <li><a href="/#services" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Website Development</a></li>
-                    <li><a href="/#services" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Android App Dev</a></li>
-                    <li><a href="/#services" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Local SEO & Growth</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom bar */}
-            <div className="border-t border-slate-200 dark:border-slate-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-500">
-              <span>© 2026 SmartWebLens. All rights reserved.</span>
-              <div className="flex gap-6">
-                <a href="https://wa.me/918228985946" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">WhatsApp support</a>
-                <a href="mailto:info@smartweblens.xyz" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">info@smartweblens.xyz</a>
-              </div>
-            </div>
-          </div>
-        </footer>
-
+      {/* Mobile Nav */}
+      <div className={`mobile-nav ${isMobileNavOpen ? "open" : ""}`} id="mobileNav">
+        <Link href="/" onClick={() => setIsMobileNavOpen(false)}>Home</Link>
+        <a href="/#services" onClick={() => setIsMobileNavOpen(false)}>Services</a>
+        <a href="/#team" onClick={() => setIsMobileNavOpen(false)}>Team</a>
+        <a href="/#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</a>
+        <a href="/#faq" onClick={() => setIsMobileNavOpen(false)}>FAQ</a>
+        <Link href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</Link>
+        <a href="tel:+918228985946" onClick={() => setIsMobileNavOpen(false)}>📞 Call: +91 82289 85946</a>
       </div>
-    </div>
+
+      {/* Spacing wrapper so content sits cleanly below sticky navigation */}
+      <div style={{ paddingTop: "68px" }}>
+        {children}
+      </div>
+
+      {/* ═══════════ FOOTER ═══════════ */}
+      <footer>
+        <div className="container">
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <img src="/swl2.PNG" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
+              <p>SmartWebLens builds fast, modern, and affordable websites and Android apps. Get your business online in just 5 days.</p>
+            </div>
+            <div className="footer-col">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><Link href="/">Home</Link></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h5>Services</h5>
+              <ul>
+                <li><a href="/#services">Website Development</a></li>
+                <li><a href="/#services">Android App</a></li>
+                <li><a href="/#services">E-Commerce</a></li>
+                <li><a href="/#services">Digital Marketing</a></li>
+              </ul>
+            </div>
+            <div className="footer-col footer-contact">
+              <h5>Contact Us</h5>
+              <ul>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3 4.18 2 2 0 0 1 4.9 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 06.29 6.29l1.18-1.18a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <a href="tel:+918228985946">+91 82289 85946</a>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <a href="mailto:info@smartweblens.xyz">info@smartweblens.xyz</a>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Bihar, India
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <span>© 2026 SmartWebLens. All rights reserved.</span>
+            <div className="social-links">
+              {/* WhatsApp */}
+              <a href="https://wa.me/918228985946" className="social-link" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "15px", height: "15px" }}>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+              {/* Instagram */}
+              <a href="#" className="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: "15px", height: "15px" }}>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              {/* LinkedIn */}
+              <a href="#" className="social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "15px", height: "15px" }}>
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
