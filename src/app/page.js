@@ -265,7 +265,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3>24/7 Support</h3>
-              <p>WhatsApp, call, and email support. We're always here when you need us — after delivery too.</p>
+              <p>WhatsApp, call, and email support. We&apos;re always here when you need us — after delivery too.</p>
               <span className="service-link" style={{ cursor: "default", color: "var(--text-light)" }}>Post-launch support</span>
             </div>
 
@@ -290,7 +290,7 @@ export default function Home() {
             <div className="feature-card">
               <div className="feature-icon-wrap">📱</div>
               <h4>Android App (₹5,000 value)</h4>
-              <p>Your business installed on customers' phones. Boost repeat visits by 3×.</p>
+              <p>Your business installed on customers&apos; phones. Boost repeat visits by 3×.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon-wrap">🌍</div>
@@ -359,7 +359,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header center">
             <div className="section-tag">Industries We Serve</div>
-            <h2 className="section-title">We've Worked Across Multiple Industries</h2>
+            <h2 className="section-title">We&apos;ve Worked Across Multiple Industries</h2>
           </div>
           <div className="industries-grid">
             <div className="industry-chip"><span>🏠</span><span>Real Estate</span></div>
@@ -555,7 +555,7 @@ export default function Home() {
           <div className="section-header center">
             <div className="section-tag">FAQs</div>
             <h2 className="section-title">Frequently Asked Questions</h2>
-            <p className="section-sub">Still have questions? Call us — we'll answer in under 2 minutes.</p>
+            <p className="section-sub">Still have questions? Call us — we&apos;ll answer in under 2 minutes.</p>
           </div>
           <div className="faq-list">
 
@@ -704,7 +704,7 @@ export default function Home() {
           <button className="modal-close" onClick={() => setIsModalOpen(false)}>&times;</button>
           <div className="modal-tag">CONTACT</div>
           <h2>Get In Touch With Us</h2>
-          <p>Ready to launch? Fill the form and we'll reach out within minutes.</p>
+          <p>Ready to launch? Fill the form and we&apos;ll reach out within minutes.</p>
           <form id="whatsappForm" onSubmit={handleFormSubmit}>
             <div className="form-grid">
               <div className="form-group">

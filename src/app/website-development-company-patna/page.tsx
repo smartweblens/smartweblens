@@ -190,7 +190,7 @@ export default function WebsiteDevelopmentPatna() {
 
           <h3 style={{ fontSize: "1.3rem", color: "#0f172a", margin: "25px 0 10px" }}>3. Custom Next.js Web Architectures</h3>
           <p>
-            Enjoy next-generation web performance. Next.js is highly optimized for Google's Core Web Vitals, pre-rendering code on the server so pages load in milliseconds, ensuring you secure the highest ranks in Google Search results.
+            Enjoy next-generation web performance. Next.js is highly optimized for Google&apos;s Core Web Vitals, pre-rendering code on the server so pages load in milliseconds, ensuring you secure the highest ranks in Google Search results.
           </p>
         </section>
 
@@ -245,7 +245,7 @@ export default function WebsiteDevelopmentPatna() {
         {/* WHY CHOOSE SMARTWEBLENS */}
         <section style={{ marginBottom: "50px" }}>
           <h2 style={{ fontSize: "1.85rem", color: "#236f79", borderLeft: "5px solid #f9ca24", paddingLeft: "15px", margin: "40px 0 20px" }}>
-            Why Choose SmartWebLens: Fraser Road's Elite Web Team
+            Why Choose SmartWebLens: Fraser Road&apos;s Elite Web Team
           </h2>
           <p>
             Local companies in Patna, Bihar, select us because of our execution speed, clear pricing, and continuous support.
