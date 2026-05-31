@@ -639,7 +639,10 @@ export default function Home() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3 4.18 2 2 0 0 1 4.9 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.91 9.91a16 16 0 0 06.29 6.29l1.18-1.18a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
-                  <a href="tel:+918228985946">+91 82289 85946</a>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                    <a href="tel:+918228985946">+91 82289 85946</a>
+                    <a href="tel:+918084326917">+91 80843 26917</a>
+                  </div>
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
