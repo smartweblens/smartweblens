@@ -105,6 +105,15 @@ export default function Home() {
                 FAQ
               </a>
             </li>
+            <li>
+              <a href="/blog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                Blog
+              </a>
+            </li>
           </ul>
           <div className="nav-cta-group">
             <a href="tel:+918228985946" className="btn-call-nav" aria-label="Call us">📞</a>
@@ -127,6 +136,7 @@ export default function Home() {
         <a href="#team" onClick={() => setIsMobileNavOpen(false)}>Team</a>
         <a href="#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</a>
         <a href="#faq" onClick={() => setIsMobileNavOpen(false)}>FAQ</a>
+        <a href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</a>
         <a href="tel:+918228985946" onClick={() => setIsMobileNavOpen(false)}>📞 Call: +91 82289 85946</a>
       </div>
 
