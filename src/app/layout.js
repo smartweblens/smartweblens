@@ -17,7 +17,7 @@ export const metadata = {
   title: "SmartWebLens – Website & App Development in 5 Days",
   description: "SmartWebLens builds fast, modern websites and Android apps for businesses. Professional web solutions in just 5 days.",
   icons: {
-    icon: "/swl2.PNG",
+    icon: "/favicon.ico",
   },
 };
 
