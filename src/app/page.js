@@ -53,7 +53,7 @@ export default function Home() {
       <nav className="navbar">
         <div className="container">
           <a href="#" className="nav-logo">
-            <img src="/swl2.PNG" alt="SmartWebLens Logo" />
+            <img src="/swl2.PNG?v=2" alt="SmartWebLens Logo" />
           </a>
           <ul className="nav-links">
             <li>
@@ -118,9 +118,9 @@ export default function Home() {
           <div className="nav-cta-group">
             <a href="tel:+918228985946" className="btn-call-nav" aria-label="Call us">📞</a>
             <button className="btn-contact-nav" onClick={() => setIsModalOpen(true)}>Contact Us</button>
-            <button 
-              className={`hamburger ${isMobileNavOpen ? "open" : ""}`} 
-              onClick={() => setIsMobileNavOpen(!isMobileNavOpen)} 
+            <button
+              className={`hamburger ${isMobileNavOpen ? "open" : ""}`}
+              onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               aria-label="Menu"
             >
               <span></span><span></span><span></span>
@@ -198,7 +198,7 @@ export default function Home() {
               <h3>Website Development</h3>
               <p>Fast, mobile-friendly, and SEO-ready websites. 5 pages fully customized for your brand — delivered in 5 days.</p>
               <a href="#pricing" className="service-link">
-                View Pricing 
+                View Pricing
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
@@ -216,7 +216,7 @@ export default function Home() {
               <h3>Android App Development</h3>
               <p>Custom Android apps that let customers install your business on their phones. Boost repeat business by 3×.</p>
               <a href="#pricing" className="service-link">
-                View Pricing 
+                View Pricing
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
@@ -235,7 +235,7 @@ export default function Home() {
               <h3>E-Commerce Website</h3>
               <p>Full online store with COD, payment gateway, product listings, and order management — built to convert.</p>
               <a href="#pricing" className="service-link">
-                View Pricing 
+                View Pricing
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
@@ -541,7 +541,7 @@ export default function Home() {
             {/* Rahul Gop */}
             <div className="team-card">
               <div className="team-avatar-wrapper">
-                <img src="/rahulgop.jpg" alt="Rahul Gop" className="team-avatar" />
+                <img src="/rahulgop.jpg?v=2" alt="Rahul Gop" className="team-avatar" />
               </div>
               <h3>Rahul Gop</h3>
               <p>Product Co-Owner</p>
@@ -611,7 +611,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
-              <img src="/swl2.PNG" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
+              <img src="/swl2.PNG?v=2" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
               <p>SmartWebLens builds fast, modern, and affordable websites and Android apps. Get your business online in just 5 days.</p>
             </div>
             <div className="footer-col">
@@ -643,6 +643,7 @@ export default function Home() {
                     <a href="tel:+918228985946">+91 82289 85946</a>
                     <a href="tel:+918084326917">+91 80843 26917</a>
                   </div>
+
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -698,8 +699,8 @@ export default function Home() {
       </a>
 
       {/* ═══════════ CONTACT MODAL ═══════════ */}
-      <div 
-        className={`modal-overlay ${isModalOpen ? "open" : ""}`} 
+      <div
+        className={`modal-overlay ${isModalOpen ? "open" : ""}`}
         id="contactModal"
         onClick={(e) => {
           if (e.target.id === "contactModal") setIsModalOpen(false);

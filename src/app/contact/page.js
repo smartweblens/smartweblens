@@ -31,7 +31,7 @@ export default function ContactPage() {
       <nav className="navbar">
         <div className="container">
           <Link href="/" className="nav-logo">
-            <img src="/swl2.PNG" alt="SmartWebLens Logo" />
+            <img src="/swl2.PNG?v=2" alt="SmartWebLens Logo" />
           </Link>
           <ul className="nav-links">
             <li>
@@ -268,7 +268,7 @@ export default function ContactPage() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
-              <img src="/swl2.PNG" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
+              <img src="/swl2.PNG?v=2" alt="SmartWebLens" style={{ height: "44px", width: "auto" }} />
               <p>SmartWebLens builds fast, modern, and affordable websites and Android apps. Get your business online in just 5 days.</p>
             </div>
             <div className="footer-col">
