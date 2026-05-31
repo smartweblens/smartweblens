@@ -537,14 +537,6 @@ export default function Home() {
               <p>Product Co-Owner</p>
             </div>
 
-            {/* Samit Kumar*/}
-            <div className="team-card">
-              <div className="team-avatar-wrapper">
-                <img src="/samit.jpg" alt="Samit Kumar" className="team-avatar" />
-              </div>
-              <h3>Samit Kumar</h3>
-              <p>Full Stack Developer</p>
-            </div>
           </div>
         </div>
       </section>
