@@ -676,7 +676,7 @@ export default function Home() {
                 <img src="/ayush.jpg" alt="Ayush Kumar" className="team-avatar" />
               </div>
               <h3>Ayush Kumar</h3>
-              <p>Product Co-Owner</p>
+              <p>Co- Founder</p>
             </div>
 
             {/* Rahul Gop */}
@@ -685,7 +685,7 @@ export default function Home() {
                 <img src="/rahulgop.jpg?v=3" alt="Rahul Gop" className="team-avatar" />
               </div>
               <h3>Rahul Gop</h3>
-              <p>Product Co-Owner</p>
+              <p>Co- Founder</p>
             </div>
           </div>
         </div>
