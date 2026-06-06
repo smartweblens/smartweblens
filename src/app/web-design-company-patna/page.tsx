@@ -1,5 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
+
 
 // REQUIREMENT: Next.js metadata export (Title under 60 chars, description under 160 chars)
 export const metadata: Metadata = {
@@ -360,13 +362,13 @@ export default function WebDesignPatna() {
           <p style={{ margin: 0, fontSize: "14px" }}>
             Are you looking to scale your business online? Learn more about our top-rated local services:
             <br />
-            🌐 Website Development: <a href="/website-development-company-patna">Website Development Company in Patna</a> | 
-            📱 Mobile App: <a href="/mobile-app-development-company-patna">Mobile App Development Company in Patna</a> | 
-            🎨 Web Design: <a href="/web-design-company-patna">Web Design Company in Patna</a> | 
-            💻 Software Engineering: <a href="/software-development-company-patna">Software Development Company in Patna</a> | 
-            🛒 E-commerce Store: <a href="/ecommerce-website-development-company-patna">Ecommerce Website Development Company in Patna</a> | 
-            ✉️ Contact: <a href="/contact-us">Contact Page</a> | 
-            📝 Blog: <a href="/blog">Our SEO Blog</a>
+            🌐 Website Development: <Link href="/website-development-company-patna">Website Development Company in Patna</Link> | 
+            📱 Mobile App: <Link href="/mobile-app-development-company-patna">Mobile App Development Company in Patna</Link> | 
+            🎨 Web Design: <Link href="/web-design-company-patna">Web Design Company in Patna</Link> | 
+            💻 Software Engineering: <Link href="/software-development-company-patna">Software Development Company in Patna</Link> | 
+            🛒 E-commerce Store: <Link href="/ecommerce-website-development-company-patna">Ecommerce Website Development Company in Patna</Link> | 
+            ✉️ Contact: <Link href="/contact">Contact Page</Link> | 
+            📝 Blog: <Link href="/blog">Our SEO Blog</Link>
           </p>
         </section>
 

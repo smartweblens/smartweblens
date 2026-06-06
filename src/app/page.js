@@ -189,13 +189,13 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <a href="/blog">
+              <Link href="/blog">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                 </svg>
                 Blog
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="nav-cta-group">
@@ -219,7 +219,7 @@ export default function Home() {
         <a href="#about" onClick={() => setIsMobileNavOpen(false)}>About Us</a>
         <a href="#team" onClick={() => setIsMobileNavOpen(false)}>Team</a>
         <a href="#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</a>
-        <a href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</a>
+        <Link href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</Link>
         <a href="tel:+918228985946" onClick={() => setIsMobileNavOpen(false)}>📞 Call: +91 82289 85946</a>
       </div>
 
@@ -704,7 +704,7 @@ export default function Home() {
             <div style={{ background: "var(--bg-light)", border: "1px solid var(--border)", padding: "30px", borderRadius: "16px", boxShadow: "var(--shadow)", fontStyle: "italic", position: "relative" }}>
               <span style={{ fontSize: "64px", color: "var(--teal)", opacity: "0.15", position: "absolute", top: "10px", left: "20px", fontFamily: "Georgia, serif" }}>“</span>
               <p style={{ margin: "20px 0 16px 0", color: "var(--text-mid)", lineHeight: "1.8", zIndex: 1, position: "relative" }}>
-                "Smart Web Lens built a highly responsive website and dynamic Android application for my school in Patna Boring Road. Their express 5-day delivery was flawless, and our online admission inquiries grew 3× in a few months. Easily the best website development company in Patna!"
+                &ldquo;Smart Web Lens built a highly responsive website and dynamic Android application for my school in Patna Boring Road. Their express 5-day delivery was flawless, and our online admission inquiries grew 3&times; in a few months. Easily the best website development company in Patna!&rdquo;
               </p>
               <h5 style={{ margin: 0, fontStyle: "normal", fontWeight: "800", color: "var(--text-dark)", textAlign: "right" }}>
                 - Anand Kumar, School Principal
@@ -714,7 +714,7 @@ export default function Home() {
             <div style={{ background: "var(--bg-light)", border: "1px solid var(--border)", padding: "30px", borderRadius: "16px", boxShadow: "var(--shadow)", fontStyle: "italic", position: "relative" }}>
               <span style={{ fontSize: "64px", color: "var(--teal)", opacity: "0.15", position: "absolute", top: "10px", left: "20px", fontFamily: "Georgia, serif" }}>“</span>
               <p style={{ margin: "20px 0 16px 0", color: "var(--text-mid)", lineHeight: "1.8", zIndex: 1, position: "relative" }}>
-                "Outstanding local support from Smart Web Lens! They designed a secure custom billing database and CRM software for our retail pharmacy clinic on Bailey Road. Database setup was incredibly smooth, fast, and extremely safe."
+                &ldquo;Outstanding local support from Smart Web Lens! They designed a secure custom billing database and CRM software for our retail pharmacy clinic on Bailey Road. Database setup was incredibly smooth, fast, and extremely safe.&rdquo;
               </p>
               <h5 style={{ margin: 0, fontStyle: "normal", fontWeight: "800", color: "var(--text-dark)", textAlign: "right" }}>
                 - Ritesh Prasad, Pharmacy Director

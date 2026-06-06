@@ -26,17 +26,17 @@ export default function BlogLayout({ children }) {
               </Link>
             </li>
             <li>
-              <a href="/#services">
+              <Link href="/#services">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="3" width="20" height="14" rx="2" />
                   <line x1="8" y1="21" x2="16" y2="21" />
                   <line x1="12" y1="17" x2="12" y2="21" />
                 </svg>
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/#team">
+              <Link href="/#team">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -44,26 +44,26 @@ export default function BlogLayout({ children }) {
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
                 Team
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/#pricing">
+              <Link href="/#pricing">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="12" y1="1" x2="12" y2="23" />
                   <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
                 </svg>
                 Pricing
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/#faq">
+              <Link href="/#faq">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
                   <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
               <Link href="/blog" className="active">
@@ -92,10 +92,10 @@ export default function BlogLayout({ children }) {
       {/* Mobile Nav */}
       <div className={`mobile-nav ${isMobileNavOpen ? "open" : ""}`} id="mobileNav">
         <Link href="/" onClick={() => setIsMobileNavOpen(false)}>Home</Link>
-        <a href="/#services" onClick={() => setIsMobileNavOpen(false)}>Services</a>
-        <a href="/#team" onClick={() => setIsMobileNavOpen(false)}>Team</a>
-        <a href="/#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</a>
-        <a href="/#faq" onClick={() => setIsMobileNavOpen(false)}>FAQ</a>
+        <Link href="/#services" onClick={() => setIsMobileNavOpen(false)}>Services</Link>
+        <Link href="/#team" onClick={() => setIsMobileNavOpen(false)}>Team</Link>
+        <Link href="/#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</Link>
+        <Link href="/#faq" onClick={() => setIsMobileNavOpen(false)}>FAQ</Link>
         <Link href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</Link>
         <a href="tel:+918228985946" onClick={() => setIsMobileNavOpen(false)}>📞 Call: +91 82289 85946</a>
       </div>
@@ -117,18 +117,18 @@ export default function BlogLayout({ children }) {
               <h5>Quick Links</h5>
               <ul>
                 <li><Link href="/">Home</Link></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#pricing">Pricing</a></li>
-                <li><a href="/#faq">FAQ</a></li>
+                <li><Link href="/#services">Services</Link></li>
+                <li><Link href="/#pricing">Pricing</Link></li>
+                <li><Link href="/#faq">FAQ</Link></li>
               </ul>
             </div>
             <div className="footer-col">
               <h5>Services</h5>
               <ul>
-                <li><a href="/#services">Website Development</a></li>
-                <li><a href="/#services">Android App</a></li>
-                <li><a href="/#services">E-Commerce</a></li>
-                <li><a href="/#services">Digital Marketing</a></li>
+                <li><Link href="/#services">Website Development</Link></li>
+                <li><Link href="/#services">Android App</Link></li>
+                <li><Link href="/#services">E-Commerce</Link></li>
+                <li><Link href="/#services">Digital Marketing</Link></li>
               </ul>
             </div>
             <div className="footer-col footer-contact">
