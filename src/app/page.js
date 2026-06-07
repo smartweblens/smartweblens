@@ -168,7 +168,7 @@ export default function Home() {
                 About
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#team">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -178,7 +178,7 @@ export default function Home() {
                 </svg>
                 Team
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="#pricing">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -217,7 +217,7 @@ export default function Home() {
         <a href="#" onClick={() => setIsMobileNavOpen(false)}>Home</a>
         <a href="#services" onClick={() => setIsMobileNavOpen(false)}>Services</a>
         <a href="#about" onClick={() => setIsMobileNavOpen(false)}>About Us</a>
-        <a href="#team" onClick={() => setIsMobileNavOpen(false)}>Team</a>
+        {/* <a href="#team" onClick={() => setIsMobileNavOpen(false)}>Team</a> */}
         <a href="#pricing" onClick={() => setIsMobileNavOpen(false)}>Pricing</a>
         <Link href="/blog" onClick={() => setIsMobileNavOpen(false)}>Blog</Link>
         <a href="tel:+918228985946" onClick={() => setIsMobileNavOpen(false)}>📞 Call: +91 82289 85946</a>
@@ -653,7 +653,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════ MEET THE TEAM ═══════════ */}
-      <section className="section team-section" id="team">
+      {/* <section className="section team-section" id="team">
         <div className="container">
           <div className="section-header center">
             <div className="section-tag">Meet the Team</div>
@@ -661,7 +661,7 @@ export default function Home() {
             <p className="section-sub">Our passionate team works together to bring creative ideas to life and deliver meaningful results.</p>
           </div>
           <div className="team-grid">
-            {/* Vivek Kumar */}
+            // Vivek Kumar
             <div className="team-card">
               <div className="team-avatar-wrapper">
                 <img src="/IMG_6840.jpg" alt="Vivek Kumar" className="team-avatar" />
@@ -670,7 +670,7 @@ export default function Home() {
               <p>Founder and CEO</p>
             </div>
 
-            {/* Ayush Kumar */}
+            // Ayush Kumar
             <div className="team-card">
               <div className="team-avatar-wrapper">
                 <img src="/ayush.jpg" alt="Ayush Kumar" className="team-avatar" />
@@ -679,7 +679,7 @@ export default function Home() {
               <p>Co- Founder</p>
             </div>
 
-            {/* Rahul Gop */}
+            // Rahul Gop
             <div className="team-card">
               <div className="team-avatar-wrapper">
                 <img src="/rahulgop.jpg?v=3" alt="Rahul Gop" className="team-avatar" />
@@ -689,7 +689,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════ TESTIMONIALS SECTION (Requirement 6) ═══════════ */}
       <section className="section testimonials" id="testimonials" style={{ background: "var(--white)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "88px 0" }}>
@@ -792,7 +792,7 @@ export default function Home() {
                 <li><a href="#">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
+                {/* <li><a href="#team">Team</a></li> */}
                 <li><a href="#faq">FAQ</a></li>
               </ul>
             </div>
